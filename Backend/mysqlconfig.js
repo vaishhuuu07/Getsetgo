@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-  host: 'your_database_host',
-  user: 'your_database_user',
-  password: 'your_database_password',
-  database: 'your_database_name'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'student'
 });
 
 db.connect((err) => {
@@ -12,5 +12,16 @@ db.connect((err) => {
     console.error('Error connecting to MySQL:', err);
   } else {
     console.log('Connected to MySQL database');
+    
   }
 });
+db.query('select * from student',(error,results)=>
+{
+  if(error)
+  {
+    console.log(error);
+  }
+  else{
+    console.log(results);
+  }
+})
