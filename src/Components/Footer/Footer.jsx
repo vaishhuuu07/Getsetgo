@@ -39,7 +39,8 @@ const Footer = () => {
           </div>
 
           <div data-aos="fade-up" data-aos-duration="2000"  className="footerParagraph">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam inventore eos fuga hic cum voluptatem minima, tempore non odio provident nobis ipsam at, doloremque sed cupiditate ipsum in, atque soluta?
+            Get set go has become more accessible than ever. It facilitates users with personalised recommendations and users can experience the best out of the application.
+             It is budget friendly and time saver with best experience 
           </div>
 
           <div data-aos="fade-up" data-aos-duration="3000"  className="footerSocials flex">       
@@ -150,8 +151,8 @@ const Footer = () => {
          </div>
 
          <div className="footerDiv flex">
-           <small>BEST TRAVEL WEBSITE THEME</small>
-           <small>COPYRIGHTS RESERVED - ISRATECH 2022</small>
+           <small>GET SET GO </small>
+           <small>EXPLORE THE BEST</small>
          </div>
        </div>
 
