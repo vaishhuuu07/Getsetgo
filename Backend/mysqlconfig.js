@@ -15,13 +15,25 @@ db.connect((err) => {
     
   }
 });
-db.query('select * from student',(error,results)=>
-{
-  if(error)
-  {
-    console.log(error);
+
+const dataToInsert = {
+  fullname: 'John Doe',
+  email: 'johndoe@example.com',
+  destination: 'Some Destination',
+};
+
+// Insert data into the database
+const sql = "INSERT INTO test (fullname, email, destination) VALUES(?,?,?)";
+
+const values = [
+  dataToInsert.fullname,
+  dataToInsert.email,
+  dataToInsert.destination
+];
+db.query(sql,values,(err, results) => {
+  if (err) {
+    console.error('Error inserting data: ' + err);
+  } else {
+    console.log('Data inserted successfully');
   }
-  else{
-    console.log(results);
-  }
-})
+});

@@ -1,7 +1,8 @@
-import "./app.css"
+import React from "react";
+import "../src/App.css"
 import { useState } from "react";
 import video2 from '../src/Assets/video (2).mp4'
-
+import axios from 'axios';
 
 const TravelForm = () => {
   const [formData, setFormData] = useState({
@@ -24,10 +25,18 @@ const TravelForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // You can perform form submission actions here, such as sending data to a server.
-    console.log(formData);
-  };
 
+    // Send the form data to your server
+    axios.post('http://localhost:5000/submit-form', formData)
+      .then((response) => {
+        console.log(response.data);
+        // Handle success, e.g., show a success message to the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle error, e.g., show an error message to the user
+      });
+  };
   return (
     <div className="travel-form">
     
@@ -68,48 +77,10 @@ const TravelForm = () => {
             value={formData.destination}
             onChange={handleChange}
             required
-          />  
-            
+          />             
           
         </label>
-        <label>
-          Departure Date:
-          <input
-            type="date"
-            name="departureDate"
-            value={formData.departureDate}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Return Date:
-          <input
-            type="date"
-            name="returnDate"
-            value={formData.returnDate}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Number of Travelers:
-          <input
-            type="number"
-            name="travelers"
-            value={formData.travelers}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Additional Information:
-          <textarea
-            name="additionalInfo"
-            value={formData.additionalInfo}
-            onChange={handleChange}
-          />
-        </label>
+       
         <button type="submit">Submit</button>
       </form>
           </div>
@@ -117,3 +88,4 @@ const TravelForm = () => {
 };
 
 export default TravelForm;
+
