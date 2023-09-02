@@ -5,5 +5,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+// api.js
+
+const axios = require('axios');
+
+// Now you can use Axios to make HTTP requests
+
 
 module.exports = router;

@@ -40,11 +40,11 @@ const TravelForm = () => {
   return (
     <div className="travel-form">
     
-      <div className="videoDiv">
+    {/* <div className="videoDiv">
         <video className="video-background" loop autoPlay muted>
           <source src={video2} type="video/mp4" />
         </video>
-        </div>
+        </div> */}
      
       <h1>APPLY!</h1>
       <form onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ const TravelForm = () => {
           
         </label>
        
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>
           </div>
   );
