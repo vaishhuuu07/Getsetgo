@@ -3,8 +3,8 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
-  database: 'student'
+  password: 'Vaishu@123',
+  database: 'Student'
 });
 
 db.connect((err) => {
@@ -17,18 +17,18 @@ db.connect((err) => {
 });
 
 const dataToInsert = {
-  fullname: 'John Doe',
-  email: 'johndoe@example.com',
-  destination: 'Some Destination',
+  Full_name: 'John Doe',
+  Email: 'johndoe@example.com',
+  Destination: 'Some Destination',
 };
 
 // Insert data into the database
-const sql = "INSERT INTO test (fullname, email, destination) VALUES(?,?,?)";
+const sql = "INSERT INTO Student (Full_name, Email, Destination) VALUES(?,?,?)";
 
 const values = [
-  dataToInsert.fullname,
-  dataToInsert.email,
-  dataToInsert.destination
+  dataToInsert.Full_name,
+  dataToInsert.Email,
+  dataToInsert.Destination
 ];
 db.query(sql,values,(err, results) => {
   if (err) {
