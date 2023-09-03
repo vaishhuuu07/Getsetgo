@@ -27,7 +27,7 @@ const TravelForm = () => {
     event.preventDefault();
 
     // Send the form data to your server
-    axios.post('http://localhost:5000/submit-form', formData)
+    axios.post('http://localhost:5000/submitTravelForm', formData)
       .then((response) => {
         console.log(response.data);
         // Handle success, e.g., show a success message to the user
@@ -40,11 +40,11 @@ const TravelForm = () => {
   return (
     <div className="travel-form">
     
-    {/* <div className="videoDiv">
+     {/* <div className="videoDiv">
         <video className="video-background" loop autoPlay muted>
           <source src={video2} type="video/mp4" />
         </video>
-        </div> */}
+  </div> */}
      
       <h1>APPLY!</h1>
       <form onSubmit={handleSubmit}>
@@ -79,6 +79,49 @@ const TravelForm = () => {
             required
           />             
           
+        </label>
+      
+        <label htmlFor="departureDate">Departure Date:
+            <input
+              type="date"
+              id="departureDate"
+              name="departureDate"
+              value={formData.departureDate}
+              onChange={handleChange}
+              required
+            />
+        </label>
+        <label htmlFor="returnDate">Return Date:
+            <input
+              type="date"
+              id="returnDate"
+              name="returnDate"
+              value={formData.returnDate}
+              onChange={handleChange}
+              required
+            />
+        </label>
+        <label>
+          Number of Travellers:
+          <input
+            type="text"
+            name="travelers"
+            value={formData.travelers}
+            onChange={handleChange}
+            required
+           /> 
+        </label>
+          
+        <label>
+        Additional information:
+          <input
+            type="text"
+            name="additionalInfo"
+            value={formData.additionalInfo}
+            onChange={handleChange}
+            required
+          />        
+
         </label>
        
         <button type="submit" onClick={handleSubmit}>Submit</button>
