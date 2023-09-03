@@ -24,25 +24,25 @@ const Navbar = () => {
           <div className={active}>
             <ul onClick={removeNav} className="navLists flex">
               <li className="navItem">
-                <a href="#" className="navLink">Home</a>
+                <a href="/" className="navLink">Home</a>
               </li>
               <li className="navItem">
                 <a href="/package" className="navLink">Packages</a>
               </li>
               <li className="navItem">
-                <a href="#" className="navLink">Shop</a>
-              </li>
-              <li className="navItem">
-                <a href="#" className="navLink">About </a>
-              </li>
-              <li className="navItem">
-                <a href="#" className="navLink">Pages</a>
-              </li>
-              <li className="navItem">
                 <a href="#" className="navLink">News</a>
               </li>
               <li className="navItem">
-                <a href="#" className="navLink">Contact</a>
+                <a href="#" className="navLink">Contact Us</a>
+              </li>
+              <li className="navItem">
+                <a href="#" className="navLink">About</a>
+              </li>
+              <li className="navItem">
+                <a href="/Login" className="navLink">Login</a>
+              </li>
+              <li className="navItem">
+                <a href="/Signup" className="navLink">Signup</a>
               </li>
               <button className="btn">
                 <a href="#">BOOK NOW</a>

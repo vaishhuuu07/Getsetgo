@@ -1,8 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from "react";
+import axios from 'axios';
 
+const SignupForm = () => {
+  const [SignupData, setSignupData] = useState({
+    Name: '',
+    Email: '',
+    Password: '',
+    Signup:'',
+    Login:'',
+  });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setSignupData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-function Signup() {
+    // Send the form data to your server
+    axios.post('http://localhost:5000/Signup', SignupData)
+      .then((response) => {
+        console.log(response.data);
+        // Handle success, e.g., show a success message to the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle error, e.g., show an error message to the user
+      });
+    };
+
+//function Signup() {
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
     <div className='bg-white  p-3 rounded w-25'>
@@ -13,7 +44,7 @@ function Signup() {
             <input type="text" placeholder='Enter Name' className='form-control rounded-0'/>
         </div>
         <div className='mb-3'>
-            <label htmlFor="email"><strong>Name</strong></label>
+            <label htmlFor="email"><strong>Email</strong></label>
             <input type="email" placeholder='Enter Email' className='form-control rounded-0'/>
         </div>
         <div className='mb-3'>
@@ -29,4 +60,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default SignupForm

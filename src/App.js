@@ -10,6 +10,8 @@ import TravelForm from './Form'
 import './TravelForm.css';
 import Login from './Pages/Login'//Import the Login component
 import Signup from './Pages/Signup'
+import Hotelbooking from './Hotelbooking'
+
 
 
 const App = () => {
@@ -26,10 +28,9 @@ const App = () => {
               <Navbar />
               <Home />
               <Main />
-                <TravelForm/>
-                <Login/>
-                <Signup/>
-                <Footer />
+              <TravelForm/>
+              <Hotelbooking/>
+              <Footer />
               </>
             }
           />
@@ -39,10 +40,34 @@ const App = () => {
               <Package />
             }
           />
+          <Route
+            path="/Signup"
+            element={
+              
+              <>
+                
+              <Navbar />
+              <Signup/>
+              <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Login"
+            element={
+              
+              <>
+                
+              <Navbar />
+              <Login/>
+              <Footer />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App;

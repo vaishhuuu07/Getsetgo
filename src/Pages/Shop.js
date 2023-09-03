@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 
 const Shop = () => {
   return (
@@ -6,4 +6,4 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default Shop 
