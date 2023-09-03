@@ -19,11 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-app.listen(3001,() =>  {
+app.use(usersrouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+// app.use('/hello',usersRouter);
+app.listen(3001,() =>  {console.log("listening")
 
 })
 
@@ -31,6 +31,26 @@ app.listen(3001,() =>  {
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+const db=mysql.createConnection({
+  host: 'localhost',
+  user:"root",
+  password:'',
+  database:'signup'
+})
+
+app.post('/signup',(req,res)=>{
+  const sql="INSERT INTO login('name','email'.'password')Values(?)";
+  const values=[
+    req.body.name,
+    req.body.email,
+    req.body.password,
+  ]
+  db.query(sql,[values],(err,data) =>  {
+    if(err) return res.json(err);
+    return res.json(data);
+  })
+})
 
 // error handler
 app.use(function(err, req, res, next) {

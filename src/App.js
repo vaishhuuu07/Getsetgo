@@ -8,11 +8,13 @@ import Package from './Pages/package'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import TravelForm from './Form'
 import './TravelForm.css';
+import Login from './Pages/Login'//Import the Login component
+import Signup from './Pages/Signup'
+
 
 const App = () => {
   return (
     <>
-
       <BrowserRouter>
         <Routes>
           <Route
@@ -25,6 +27,8 @@ const App = () => {
               <Home />
               <Main />
                 <TravelForm/>
+                <Login/>
+                <Signup/>
                 <Footer />
               </>
             }
