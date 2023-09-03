@@ -6,20 +6,20 @@ class Login {
     }
 
     Login(app, connection) {
-        app.post("/Login", (req, res) => {
+        app.post("/Login", async(req, res) => {
             console.log(req.body);
             const {
-                Email,
-                Password,
+                email,
+                password,
 
             } = req.body;
-
-            DBHandler.createTravelForm(
-                Email,
-                Password,
+             
+            let loginData =await DBHandler.Login(
+                email,
+                password,
                 
             );
-            res.send("Success");
+            res.send(loginData);
         });
     }
 }

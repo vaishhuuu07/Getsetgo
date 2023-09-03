@@ -5,12 +5,11 @@ import axios from 'axios';
 
 const SignupForm = () => {
   const [SignupData, setSignupData] = useState({
-    Name: '',
-    Email: '',
-    Password: '',
-    Signup:'',
-    Login:'',
+    name: '',
+    email: '',
+    password: '',
   });
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSignupData((prevData) => ({
@@ -25,6 +24,7 @@ const SignupForm = () => {
     axios.post('http://localhost:5000/Signup', SignupData)
       .then((response) => {
         console.log(response.data);
+        alert("Successful Signup")
         // Handle success, e.g., show a success message to the user
       })
       .catch((error) => {
@@ -41,19 +41,19 @@ const SignupForm = () => {
     <form action="">
         <div className='mb-3'>
             <label htmlFor="name"><strong>Name</strong></label>
-            <input type="text" placeholder='Enter Name' className='form-control rounded-0'/>
+            <input type="text" placeholder='Enter Name' className='form-control rounded-0' name="name"onChange={handleChange} value={SignupData.name}/>
         </div>
         <div className='mb-3'>
             <label htmlFor="email"><strong>Email</strong></label>
-            <input type="email" placeholder='Enter Email' className='form-control rounded-0'/>
+            <input type="email" placeholder='Enter Email' className='form-control rounded-0' name="email"onChange={handleChange} value={SignupData.email}/>
         </div>
         <div className='mb-3'>
             <label htmlFor="password"><strong>Password</strong></label>
-            <input type="password" placeholder='Enter Password' className='form-control rounded-0'/>
+            <input type="password" placeholder='Enter Password' className='form-control rounded-0' name="password"onChange={handleChange} value={SignupData.password}/>
         </div>
-        <button className='btn btn-success w-100 rounded-0' type ='submit'>Sign up</button>
+        <button className='btn btn-success w-100 rounded-0' type ='submit' onClick={handleSubmit}>Sign up</button>
         <p>You agree to our terms and policies</p>
-        <Link to="/" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Login</Link>
+        <Link to="/Login" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Login</Link>
     </form>
 </div>
 </div>

@@ -3,6 +3,8 @@ const cors = require("cors");
 const session = require("express-session");
 const path = require("path");
 const TravelForm = require("./routes/TravelForm");
+const Login = require("./routes/Login");
+const Signup = require("./routes/Signup");
 
 const app = express();
 app.use(cors());
@@ -27,4 +29,5 @@ app.get("/", function (req, res) {
 
 new TravelForm(app);
 new Login(app);
+new Signup(app);
 app.listen(5000, () => console.log("Running on port 5000"));

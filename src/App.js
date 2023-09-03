@@ -30,7 +30,7 @@ const App = () => {
               <Main />
               <TravelForm/>
               <Hotelbooking/>
-              <Footer />
+              <Footer/>
               </>
             }
           />

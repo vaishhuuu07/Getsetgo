@@ -5,24 +5,21 @@ class Signup {
         this.Signup(app, connection);
     }
 
-    Login(app, connection) {
+    Signup(app, connection) {
         app.post("/Signup", (req, res) => {
             console.log(req.body);
             const {
-                Name,
-                Email,
-                Password,
-                Signup,
-                Login,
+                name,
+                email,
+                password,
 
             } = req.body;
 
-            DBHandler.createTravelForm(
-                Name,
-                Email,
-                Password,
-                Signup,
-                Login,
+            DBHandler.Signup(
+                name,
+                email,
+                password,
+
 
                
                 
