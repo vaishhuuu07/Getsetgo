@@ -5,6 +5,7 @@ import Home from './Components/Home/Home'
 import Main from './Components/Main/Main'
 import Navbar from './Components/Navbar/Navbar'
 import Package from './Pages/package'
+import Hotels from './Pages/Hotels'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import TravelForm from './Form'
 import './TravelForm.css';
@@ -38,6 +39,16 @@ const App = () => {
             path="/package"
             element={
               <Package />
+            }
+          />
+           <Route
+            path="/hotels"
+            element={
+              <>
+              <Navbar />
+              <Hotels />
+              <Footer />
+              </>
             }
           />
           <Route
