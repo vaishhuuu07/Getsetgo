@@ -1,8 +1,12 @@
 import React from "react";
 import "../src/App.css"
 import { useState } from "react";
+import { useNavigate,Link } from "react-router-dom";
 import video2 from '../src/Assets/video (2).mp4'
 import axios from 'axios';
+import {Box,Slider} from '@mui/material';
+
+
 
 const TravelForm = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +17,34 @@ const TravelForm = () => {
     returnDate: '',
     travelers: 1,
     additionalInfo: '',
+    price: 25
   });
+  
+
+  const marks = [
+    {
+      value: 0,
+      label: '0-1000',
+    },
+    {
+      value: 25,
+      label: '1000-4000',
+    },
+    {
+      value: 75,
+      label: '4000-10000',
+    },
+    {
+      value: 100,
+      label: '>10000',
+    },
+  ];
+  const navigate = useNavigate()
+  
+
+  // Handler function to update the state when the slider value changes
+  
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,15 +56,17 @@ const TravelForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(formData)
     // Send the form data to your server
     axios.post('http://localhost:5000/submitTravelForm', formData)
       .then((response) => {
         console.log(response.data);
+        navigate('/hotels')
         // Handle success, e.g., show a success message to the user
       })
       .catch((error) => {
         console.error('Error:', error);
+        navigate('/hotels')
         // Handle error, e.g., show an error message to the user
       });
   };
@@ -110,6 +143,22 @@ const TravelForm = () => {
             onChange={handleChange}
             required
            /> 
+        </label>
+
+        <label>
+          Price(In ₹):
+          <Box sx={{ width: 300,marginLeft:'20px' }}>
+          <Slider
+        aria-label="Custom marks"
+        name="price"
+        value={formData.price}
+        onChange={handleChange}
+        
+        step={25}
+        valueLabelDisplay="auto"
+        marks={marks}
+          />
+        </Box>
         </label>
           
         <label>
