@@ -11,20 +11,7 @@ import TravelForm from './Form'
 import './TravelForm.css';
 import Login from './Pages/Login'//Import the Login component
 import Signup from './Pages/Signup'
-<<<<<<< HEAD
-import Hotelbooking from './Hotelbooking'
 import Chat from './Components/Chat'
-
-// function App(){
-//   return(
-//     <chat/>
-//   );
-// }
-=======
-
->>>>>>> c1e554e3030021c23cc02d80824d59190450ee84
-
-
 
 const App = () => {
   return (

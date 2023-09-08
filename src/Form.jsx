@@ -160,6 +160,17 @@ const TravelForm = () => {
           />
         </Box>
         </label>
+        <label>
+        Charity(Optional):
+          <input
+            type="text"
+            name="charity"
+            value={formData.charity}
+            onChange={handleChange}
+            required
+          />       
+
+        </label>
           
         <label>
         Additional information:
