@@ -26,6 +26,7 @@ function loadScript(src) {
 const Hotels = () => {
 
     const [open, setOpen] = useState(false);
+    
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 //   const modalStyle = {
@@ -84,12 +85,13 @@ const Hotels = () => {
         description: 'One of the most remarkable Australian natural gifts is the Great Barrier Reef. The hallmark of this place is ‘lavish’ and ‘beauty’. Always interesting to be in this place'  
         }
     ]
+    const [itineraryEnabled, setItineraryEnabled] = useState(Array(Data.length).fill(false));
 
     const handleModalOpen = () => {
 
     }
 
-    const handleClick = async() => {
+    const handleClick = async(index) => {
         
             const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
     
@@ -113,6 +115,10 @@ const Hotels = () => {
                 description: 'Thank you for nothing. Please give us some money',
                 image: 'htt',
                 handler: function (response) {
+
+                  const updatedItineraryEnabled = [...itineraryEnabled];
+                  updatedItineraryEnabled[index] = true; // Use 'value' to enable or disable the button
+                  setItineraryEnabled(updatedItineraryEnabled);
                     // alert(response.razorpay_payment_id)
                     // alert(response.razorpay_order_id)
                     // alert(response.razorpay_signature)
@@ -161,7 +167,7 @@ const Hotels = () => {
         
         <div style={{display:'flex',gap:25,flexWrap:'wrap',margin:'10px'}}>
 
-        {Data.map((i,index) => {
+        {Data?.map((i,index) => {
 
             return (
 
@@ -187,11 +193,11 @@ const Hotels = () => {
                 <CardActions>
                     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',width:'100%'}}>
                         <div>
-                        <Button size="small" onClick={handleOpen}>Itinerary</Button>
+                        <Button size="small" onClick={handleOpen} disabled={!itineraryEnabled[index]} >Itinerary</Button>
                         <Button size="small">Learn More</Button>
                         </div>
                         <div>
-                        <Button size="medium" variant='contained' onClick={handleClick}>Book Now</Button>
+                        <Button size="medium" variant='contained' onClick={() => handleClick(index)}>Book Now</Button>
                         </div>
                     </div>
                   
