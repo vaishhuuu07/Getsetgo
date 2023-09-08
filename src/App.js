@@ -12,6 +12,13 @@ import './TravelForm.css';
 import Login from './Pages/Login'//Import the Login component
 import Signup from './Pages/Signup'
 import Hotelbooking from './Hotelbooking'
+import Chat from './Components/Chat'
+
+// function App(){
+//   return(
+//     <chat/>
+//   );
+// }
 
 
 
@@ -32,6 +39,7 @@ const App = () => {
               <TravelForm/>
               <Hotelbooking/>
               <Footer/>
+              <Chat/>
               </>
             }
           />

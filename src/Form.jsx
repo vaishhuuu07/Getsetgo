@@ -169,7 +169,7 @@ const TravelForm = () => {
             value={formData.additionalInfo}
             onChange={handleChange}
             required
-          />        
+          />       
 
         </label>
        
