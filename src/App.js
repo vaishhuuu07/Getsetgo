@@ -11,7 +11,7 @@ import TravelForm from './Form'
 import './TravelForm.css';
 import Login from './Pages/Login'//Import the Login component
 import Signup from './Pages/Signup'
-import Hotelbooking from './Hotelbooking'
+
 
 
 
@@ -30,7 +30,7 @@ const App = () => {
               <Home />
               <Main />
               <TravelForm/>
-              <Hotelbooking/>
+              
               <Footer/>
               </>
             }
