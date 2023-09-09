@@ -35,7 +35,7 @@ const Footer = () => {
        <div className="footerCard flex">
          <div className="footerIntro flex">
          <div className="logoDiv">
-            <a href="#" className="logo flex"><h1><MdOutlineTravelExplore className='icon' />  Travel.</h1></a>
+            <a href="#" className="logo flex"><h1><MdOutlineTravelExplore className='icon' />  GetSetGo.</h1></a>
           </div>
 
           <div data-aos="fade-up" data-aos-duration="2000"  className="footerParagraph">
@@ -66,7 +66,7 @@ const Footer = () => {
 
                <li className="footerList flex">
                   <FiChevronRight className="icon"/>
-                  Insurance
+                  AI
                </li>
 
                <li className="footerList flex">
